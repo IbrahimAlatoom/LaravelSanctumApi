@@ -19,7 +19,14 @@ Route::get('/products',function(){
 });
 
 Route::post('/products',function(){
-    return Product::create();
+    return Product::create(
+        [
+            'name' => 'Products One',
+            'slug' => 'Products-One',
+            'description' => 'This is Products One',
+            'price' => '99.99'
+        ]
+    );
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
